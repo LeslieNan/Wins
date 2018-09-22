@@ -1,0 +1,76 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.yourstory.winsproject.fragment.HeadFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="parent" />
+    <LinearLayout
+        android:id="@+id/topViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/head_topView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_head"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbarHeight"
+            android:background="#00000000"
+            android:paddingTop="5dp"
+            app:contentInsetEnd="@dimen/viewMargin"
+            app:contentInsetStart="@dimen/viewMargin">
+
+
+            <LinearLayout
+                android:id="@+id/ll_head_toolbar_school"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_head_toolbar_school"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:text="西安石油大学"
+                    android:textColor="@color/WHITE"
+                    android:textSize="@dimen/titleNumber" />
+
+                <ImageView
+                    android:layout_width="@dimen/buttonWidth"
+                    android:layout_height="@dimen/buttonWidth"
+                    android:src="@drawable/head_down" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_head_toolbar_found"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/buttonWidth"
+                android:layout_gravity="start"
+                android:background="@drawable/head_fdj" />
+
+            <Button
+                android:id="@+id/btn_head_toolbar_message"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/buttonWidth"
+                android:layout_gravity="end"
+                android:background="@drawable/head_message" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

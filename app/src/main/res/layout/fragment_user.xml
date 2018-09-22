@@ -1,0 +1,194 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.yourstory.winsproject.fragment.UserFragment">
+
+
+    <View
+        android:id="@+id/user_topView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/primary"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_user"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbarHeight"
+        android:background="@color/primary"
+        app:contentInsetEnd="@dimen/toolbarMargin"
+        app:contentInsetStart="@dimen/toolbarMargin">
+
+        <Button
+            android:id="@+id/btn_user_saomiao"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonWidth"
+            android:layout_gravity="start"
+            android:background="@drawable/user_saomiao" />
+
+        <Button
+            android:id="@+id/btn_user_shezhi"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonWidth"
+            android:layout_gravity="end"
+            android:background="@drawable/user_shezhi" />
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+            <!--获取焦点，为防止scrollView因焦点滑动至底部-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/userInformationHeight"
+                android:background="@color/primary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.example.yourstory.winsproject.view.CircleImageVIew
+                    android:id="@+id/iv_user_headimg"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/touxiang"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="我的名字"
+                    android:textColor="@color/WHITE"
+                    android:textSize="@dimen/titleNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_user_headimg" />
+
+                <TextView
+                    android:id="@+id/tv_user_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="我们流连忘返，在贝加尔湖畔"
+                    android:textColor="@color/WHITE"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_user_shoucang"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/viewMargin"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/buttonWidth"
+                        android:layout_height="@dimen/buttonWidth"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/user_star" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="收藏" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_user_pinglun"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/viewMargin"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/buttonWidth"
+                        android:layout_height="@dimen/buttonWidth"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/user_speak" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="评价" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_user_recent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/buttonWidth"
+                        android:layout_height="@dimen/buttonWidth"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/user_time" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="最近浏览" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wins"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/viewMargin"
+                android:textSize="@dimen/titleNumber"
+                android:textStyle="bold"/>
+
+            <com.example.yourstory.winsproject.view.UserGridView
+                android:id="@+id/gv_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/viewMargin"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:verticalSpacing="10dp"
+                android:numColumns="4"
+                android:stretchMode="columnWidth"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

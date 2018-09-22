@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_user_grid"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonWidth"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:src="@drawable/user_star" />
+
+    <TextView
+        android:id="@+id/tv_user_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="优惠券"
+        android:layout_marginBottom="5dp"/>
+
+
+</LinearLayout>

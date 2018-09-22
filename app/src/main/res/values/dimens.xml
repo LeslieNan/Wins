@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbarHeight" >40dp</dimen>
+    <dimen name="titleNumber">18sp</dimen>
+    <dimen name="viewpagerHeight">180dp</dimen>
+    <dimen name="itemImgWidth">79dp</dimen>
+    <dimen name="itemImgHeight">70dp</dimen>
+    <dimen name="buttonWidth">23dp</dimen>
+    <dimen name="toolbarMargin">15dp</dimen>
+    <dimen name="viewMargin">10dp</dimen>
+    <dimen name="bottomNavigationHeight">56dp</dimen>
+    <dimen name="userInformationHeight">160dp</dimen>
+
+</resources>

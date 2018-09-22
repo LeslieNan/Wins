@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--设置选中和未选中的图片,代码中根据setChecked来选择状态-->
+    <item android:drawable="@drawable/homea" android:state_checked="true" />
+    <item android:drawable="@drawable/homeb" />
+</selector>

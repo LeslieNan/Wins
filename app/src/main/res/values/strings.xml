@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WinsProject</string>
+    <string name="home">主页</string>
+    <string name="order">订单</string>
+    <string name="user">我的</string>
+
+</resources>

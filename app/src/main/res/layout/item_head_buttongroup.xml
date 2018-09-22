@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/btn_head_group1"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:src="@drawable/head_tuijian"
+        android:padding="5dp"
+        android:background="@drawable/background_listview_prase"
+        android:clickable="true"/>
+    <ImageView
+        android:id="@+id/btn_head_group2"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:src="@drawable/head_kaoyan"
+        android:padding="5dp"
+        android:background="@drawable/background_listview_prase"
+        android:clickable="true"/>
+    <ImageView
+        android:id="@+id/btn_head_group3"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:src="@drawable/head_keshe"
+        android:padding="5dp"
+        android:background="@drawable/background_listview_prase"
+        android:clickable="true"/>
+    <ImageView
+        android:id="@+id/btn_head_group4"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:src="@drawable/head_tongshi"
+        android:padding="5dp"
+        android:background="@drawable/background_listview_prase"
+        android:clickable="true"/>
+    <ImageView
+        android:id="@+id/btn_head_group5"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:src="@drawable/head_paiming"
+        android:padding="5dp"
+        android:background="@drawable/background_listview_prase"
+        android:clickable="true"/>
+
+</LinearLayout>
