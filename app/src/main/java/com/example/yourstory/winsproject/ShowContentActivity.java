@@ -25,7 +25,7 @@ public class ShowContentActivity extends AppCompatActivity {
 
     private ActionBar actionBar;
 
-    private String PATH="http://www.imooc.com/api/shopping?type=12";
+    private static String PATH="http://www.imooc.com/api/shopping?type=12";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,6 @@ public class ShowContentActivity extends AppCompatActivity {
 
     }
 
-    private void initData() {
-        new ShowWebDataTask(PATH,actionBar,img,tvPrice,tvContent).execute();
-    }
-
     /**
      * 初始化intent
      */
@@ -49,6 +45,9 @@ public class ShowContentActivity extends AppCompatActivity {
         contentName = getid.getStringExtra("name");
     }
 
+    /**
+     * 初始化控件
+     */
     private void initView() {
         toolbar = findViewById(R.id.toolbar_show);
         img=findViewById(R.id.iv_show);
@@ -56,13 +55,22 @@ public class ShowContentActivity extends AppCompatActivity {
         tvContent=findViewById(R.id.tv_show_content);
         setSupportActionBar(toolbar);
         actionBar=getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle(contentName);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle(contentName);
+        }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+    }
+
+    /**
+     * 获取网络数据
+     */
+    private void initData() {
+        new ShowWebDataTask(this,PATH,actionBar,img,tvPrice,tvContent).execute();
     }
 }

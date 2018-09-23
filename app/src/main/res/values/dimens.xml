@@ -10,5 +10,6 @@
     <dimen name="viewMargin">10dp</dimen>
     <dimen name="bottomNavigationHeight">56dp</dimen>
     <dimen name="userInformationHeight">160dp</dimen>
+    <dimen name="userHeadimgHeight">80dp</dimen>
 
 </resources>

@@ -17,7 +17,9 @@
     <ImageView
         android:id="@+id/iv_show"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
     <TextView
         android:id="@+id/tv_show_price"
         android:layout_width="wrap_content"

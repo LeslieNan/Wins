@@ -58,8 +58,8 @@
 
                 <com.example.yourstory.winsproject.view.CircleImageVIew
                     android:id="@+id/iv_user_headimg"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/userHeadimgHeight"
+                    android:layout_height="@dimen/userHeadimgHeight"
                     android:src="@drawable/touxiang"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="@id/tv_user_name"

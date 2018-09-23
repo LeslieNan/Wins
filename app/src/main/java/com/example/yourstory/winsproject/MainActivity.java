@@ -1,5 +1,9 @@
 package com.example.yourstory.winsproject;
 
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.yourstory.winsproject.adapter.ViewPagerFragmentAdapter;
 import com.example.yourstory.winsproject.fragment.HeadFragment;
@@ -28,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
         addFragment();
         link();
         //适配器
+        fragmentAdapter();
+        //设置底部导航栏不为透明
+        setBottomNavigation();
+    }
+
+    /**
+     * 页面适配器
+     */
+    private void fragmentAdapter() {
         ViewPagerFragmentAdapter adapter=new ViewPagerFragmentAdapter(
                 getSupportFragmentManager(),fragments);
         viewPager.setAdapter(adapter);
@@ -107,5 +122,14 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                     }
                 });
+    }
+
+    /**
+     * 设置底部导航栏不为透明
+     */
+    private void setBottomNavigation() {
+        Resources resource=(Resources)getBaseContext().getResources();
+        ColorStateList csl=(ColorStateList)resource.getColorStateList(R.color.bottom_text);
+        navigation.setItemTextColor(csl);
     }
 }
