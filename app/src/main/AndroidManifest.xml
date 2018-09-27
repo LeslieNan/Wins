@@ -23,7 +23,11 @@
         <activity android:name=".SearchActivity" />
         <activity android:name=".ShowContentActivity" />
         <activity android:name=".MyInformationActivity" />
-        <activity android:name=".SchoolListActivity"></activity>
+        <activity android:name=".SchoolListActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/TranslucentTheme" />
+        <activity android:name=".MenuListActivity"></activity>
     </application>
 
 </manifest>

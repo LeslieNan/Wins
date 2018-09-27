@@ -3,5 +3,6 @@
     <string name="home">主页</string>
     <string name="order">订单</string>
     <string name="user">我的</string>
+    <string name="backString"><![CDATA[<<返回]]></string>
 
 </resources>

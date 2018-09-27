@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 
 import com.example.yourstory.winsproject.MainActivity;
 import com.example.yourstory.winsproject.R;
+import com.example.yourstory.winsproject.SchoolListActivity;
 import com.example.yourstory.winsproject.SearchActivity;
 import com.example.yourstory.winsproject.adapter.HeadRVMainAdapter;
 import com.example.yourstory.winsproject.bean.HeadRecyclerBean;
@@ -69,7 +70,7 @@ public class HeadFragment extends Fragment implements View.OnClickListener {
     /**
      * 初始化控件
      *
-     * @param view
+     * @param view：
      */
     private void initView(View view) {
         mContext=getContext();
@@ -167,7 +168,8 @@ public class HeadFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.ll_head_toolbar_school:
-
+                Intent intentToSchool=new Intent(mContext, SchoolListActivity.class);
+                startActivity(intentToSchool);
                 break;
         }
     }

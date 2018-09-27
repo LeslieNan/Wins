@@ -1,0 +1,79 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yourstory.winsproject.fragment.RegisterFragment">
+
+    <TextView
+        android:id="@+id/tv_register_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/toolbarMargin"
+        android:layout_marginTop="40dp"
+        android:textSize="@dimen/titleNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/backString"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/viewMargin"
+        android:text="注册账号"
+        android:textColor="@color/primary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/et_register_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_register_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/viewMargin"
+        android:layout_marginEnd="@dimen/toolbarMargin"
+        android:layout_marginStart="@dimen/toolbarMargin"
+        android:hint="邮箱："
+        android:paddingEnd="@dimen/viewMargin"
+        android:paddingStart="@dimen/viewMargin"
+        app:layout_constraintBottom_toTopOf="@id/et_register_psw" />
+
+    <EditText
+        android:id="@+id/et_register_psw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/viewMargin"
+        android:layout_marginEnd="@dimen/toolbarMargin"
+        android:layout_marginStart="@dimen/toolbarMargin"
+        android:hint="密码："
+        android:paddingEnd="@dimen/viewMargin"
+        android:paddingStart="@dimen/viewMargin"
+        app:layout_constraintBottom_toTopOf="@id/et_register_again" />
+
+    <EditText
+        android:id="@+id/et_register_again"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/toolbarMargin"
+        android:layout_marginStart="@dimen/toolbarMargin"
+        android:hint="确认密码:"
+        android:paddingEnd="@dimen/viewMargin"
+        android:paddingStart="@dimen/viewMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/toolbarMargin"
+        android:layout_marginStart="@dimen/toolbarMargin"
+        android:layout_marginTop="@dimen/viewMargin"
+        android:text="注册"
+        android:textSize="@dimen/titleNumber"
+        app:layout_constraintTop_toBottomOf="@id/et_register_again" />
+</android.support.constraint.ConstraintLayout>

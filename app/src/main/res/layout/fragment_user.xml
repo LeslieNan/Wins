@@ -75,6 +75,7 @@
                     android:text="我的名字"
                     android:textColor="@color/WHITE"
                     android:textSize="@dimen/titleNumber"
+                    android:clickable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_user_headimg" />
@@ -86,6 +87,7 @@
                     android:layout_marginTop="5dp"
                     android:text="我们流连忘返，在贝加尔湖畔"
                     android:textColor="@color/WHITE"
+                    android:clickable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_user_name" />

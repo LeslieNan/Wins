@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.yourstory.winsproject.R;
 import com.example.yourstory.winsproject.bean.showContent.DataObjectBean;
 import com.example.yourstory.winsproject.bean.showContent.ShowDataBean;
 import com.google.gson.Gson;

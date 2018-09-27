@@ -16,7 +16,7 @@ import java.net.URL;
 public class NetUtil {
 
     /**
-     * 获取网络数据
+     * 获取网络数据,使用的httpConnect
      * @param path
      * @return
      */

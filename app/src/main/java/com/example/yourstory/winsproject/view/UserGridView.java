@@ -30,6 +30,11 @@ public class UserGridView extends GridView {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    /**
+     * 解决gridView与外层的ScrollView的滑动冲突，方法是让gridView全部显示
+     * @param widthMeasureSpec
+     * @param heightMeasureSpec
+     */
     @Override
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 

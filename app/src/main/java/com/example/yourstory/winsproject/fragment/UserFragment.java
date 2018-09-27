@@ -2,6 +2,7 @@ package com.example.yourstory.winsproject.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -15,12 +16,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.yourstory.winsproject.LoginActivity;
 import com.example.yourstory.winsproject.MyInformationActivity;
 import com.example.yourstory.winsproject.R;
 import com.example.yourstory.winsproject.adapter.UserGridAdapter;
 import com.example.yourstory.winsproject.bean.ImageTextButtonBean;
 import com.example.yourstory.winsproject.util.UIUtil;
 import com.example.yourstory.winsproject.view.UserGridView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,12 +72,24 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        SharedPreferences preferences=getActivity().getSharedPreferences("login",Context.MODE_PRIVATE);
+        String name= preferences.getString("id","未登录");
+        tvName.setText(name);
+        Picasso picasso=Picasso.with(mContext);
+        picasso.load("http://39.105.144.55:8080/images/common/favicon.ico").into(ivHead);
+
+    }
+
     private void initView(View view) {
         mContext=getActivity();
         btnCode=view.findViewById(R.id.btn_user_saomiao);
         btnSet=view.findViewById(R.id.btn_user_shezhi);
         ivHead=view.findViewById(R.id.iv_user_headimg);
-        tvName=view.findViewById(R.id.tv_user_content);
+        tvName=view.findViewById(R.id.tv_user_name);
         tvContent=view.findViewById(R.id.tv_user_content);
         llCollection=view.findViewById(R.id.ll_user_shoucang);
         llEvaluation=view.findViewById(R.id.ll_user_pinglun);
@@ -128,11 +143,12 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.iv_user_headimg:
-                Intent intent=new Intent(mContext, MyInformationActivity.class);
-                startActivity(intent);
+                Intent intentImg=new Intent(mContext, MyInformationActivity.class);
+                startActivity(intentImg);
                 break;
             case R.id.tv_user_name:
-
+                Intent intentName=new Intent(mContext, LoginActivity.class);
+                startActivity(intentName);
                 break;
             case R.id.tv_user_content:
 
@@ -140,4 +156,6 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
         }
     }
+
+
 }
