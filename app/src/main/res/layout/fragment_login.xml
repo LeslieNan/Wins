@@ -27,6 +27,7 @@
         android:paddingStart="@dimen/viewMargin"
         android:paddingEnd="@dimen/viewMargin"
         android:hint="账号："
+        android:inputType="textEmailAddress"
         />
     <EditText
         android:id="@+id/ev_login_psw"
@@ -39,6 +40,7 @@
         android:paddingStart="@dimen/viewMargin"
         android:paddingEnd="@dimen/viewMargin"
         android:hint="密码："
+        android:inputType="textPassword"
         />
     <Button
         android:id="@+id/btn_login_login"

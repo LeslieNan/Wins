@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.yourstory.winsproject.LoginActivity;
 import com.example.yourstory.winsproject.R;
+import com.example.yourstory.winsproject.util.GeneralUtil;
 import com.example.yourstory.winsproject.view.BanSlidingViewPager;
 
 import java.io.BufferedReader;
@@ -54,7 +56,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
-        mViewPager=viewPager;
+        mViewPager = viewPager;
         return fragment;
     }
 
@@ -62,7 +64,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
         initView(view);
 
         return view;
@@ -70,15 +72,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     /**
      * 初始化控件
+     *
      * @param view
      */
     private void initView(View view) {
-        activity=(LoginActivity) getActivity();
-        etID=view.findViewById(R.id.ev_login_id);
-        etPsw=view.findViewById(R.id.ev_login_psw);
-        btnLogin=view.findViewById(R.id.btn_login_login);
-        tvForget=view.findViewById(R.id.tv_login_forget);
-        tvRegister=view.findViewById(R.id.tv_login_register);
+        activity = (LoginActivity) getActivity();
+        etID = view.findViewById(R.id.ev_login_id);
+        etPsw = view.findViewById(R.id.ev_login_psw);
+        btnLogin = view.findViewById(R.id.btn_login_login);
+        tvForget = view.findViewById(R.id.tv_login_forget);
+        tvRegister = view.findViewById(R.id.tv_login_register);
 
         //点击事件
         btnLogin.setOnClickListener(this);
@@ -89,15 +92,18 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     /**
      * 点击事件
-      * @param view
+     *
+     * @param view
      */
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_login_login:
-                if (etID.getText().toString().equals("") || etPsw.getText().toString().equals("")){
-                    Toast.makeText(activity,"账号和密码不能为空",Toast.LENGTH_SHORT).show();
-                }else {
+                if (etID.getText().toString().equals("") || etPsw.getText().toString().equals("")) {
+                    Toast.makeText(activity, "账号和密码不能为空", Toast.LENGTH_SHORT).show();
+                } else if (!GeneralUtil.isEmailAddress(etID.getText().toString())) {
+                    Toast.makeText(activity, "邮箱格式有误", Toast.LENGTH_SHORT).show();
+                } else {
                     login();
                 }
                 break;
@@ -122,40 +128,40 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 try {
                     //创建requestBody的post请求对象,这是向服务器传一般数据
                     RequestBody requestBody = new FormBody.Builder()
-                            .add("id",etID.getText().toString())
-                            .add("psw",etPsw.getText().toString())
+                            .add("id", etID.getText().toString())
+                            .add("psw", etPsw.getText().toString())
                             .build();
                     //或者传入一般固定格式的
 //                    RequestBody requestBody1=RequestBody.create();
 
                     //以下为获取数据步骤
-                    OkHttpClient client=new OkHttpClient();
-                    Request.Builder builder=new Request.Builder();
+                    OkHttpClient client = new OkHttpClient();
+                    Request.Builder builder = new Request.Builder();
                     builder.url("http://39.105.144.55:8080/login");
                     builder.post(requestBody);
-                    Request request=builder.build();
-                    Call call=client.newCall(request);
+                    Request request = builder.build();
+                    Call call = client.newCall(request);
                     //response是服务器返回的数据
-                    Response response=call.execute();
+                    Response response = call.execute();
 
-                    Log.d("我的",response+"");
+                    Log.d("我的", response + "");
 
-                    final String str=response.body().string();
-                    final int code=response.code();
+                    final String str = response.body().string();
+                    final int code = response.code();
                     Log.d("我的", str);
                     Log.d("我的", String.valueOf(response.code()));
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (str.equals("0")){
-                                Toast.makeText(activity,"密码错误",Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(activity,"登录成功",Toast.LENGTH_SHORT).show();
+                            if (str.equals("0")) {
+                                Toast.makeText(activity, "密码错误", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(activity, "登录成功", Toast.LENGTH_SHORT).show();
                                 @SuppressLint("CommitPrefEdits")
-                                SharedPreferences.Editor editor=activity
-                                        .getSharedPreferences("login",Context.MODE_PRIVATE)
+                                SharedPreferences.Editor editor = activity
+                                        .getSharedPreferences("login", Context.MODE_PRIVATE)
                                         .edit();
-                                editor.putString("id",etID.getText().toString());
+                                editor.putString("id", etID.getText().toString());
                                 editor.apply();
                                 activity.finish();
                             }
@@ -168,7 +174,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         }).start();
 
     }
-
 
 
 }

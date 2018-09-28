@@ -77,7 +77,7 @@ public class RegisterFragment extends Fragment {
      * @param view:
      */
     private void setKeyListener(View view) {
-        //设置物理按键的监听事件,这个和下面的这个命令必须要设置了，才能监听back事件。
+        //设置物理按键的监听事件,这个和下面的这个命令必须要设置，才能监听back事件。
         view.setFocusable(true);
         view.setFocusableInTouchMode(true);
         view.setOnKeyListener(backlistener);
@@ -145,12 +145,12 @@ public class RegisterFragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    String jsonData="{\"id\":\""+etID.getText().toString()+"\",\"psw\":\""+etPsw.getText().toString()+"\",\"name\":\"\",\"school\":\"\",\"studentId\":\"\",\"headImg\":\"\",\"intro\":\"\"}";
+                    String jsonData = "{\"id\":\"" + etID.getText().toString() + "\",\"psw\":\"" + etPsw.getText().toString() + "\",\"name\":\"\",\"school\":\"\",\"studentId\":\"\",\"headImg\":\"\",\"intro\":\"\"}";
                     //创建requestBody的post请求对象,这是向服务器传一般数据
                     RequestBody requestBody = new FormBody.Builder()
-                            .add("message",jsonData)
+                            .add("message", jsonData)
                             .build();
-                    Log.d("我的",jsonData);
+                    Log.d("我的", jsonData);
                     //以下为获取数据步骤
                     OkHttpClient client = new OkHttpClient();
                     Request.Builder builder = new Request.Builder();
@@ -163,9 +163,9 @@ public class RegisterFragment extends Fragment {
                     String str = response.body().string();
                     //解析json数据
                     try {
-                        JSONObject object=new JSONObject(str);
-                        jsonCode=object.getString("code");
-                        jsonText=object.getString("text");
+                        JSONObject object = new JSONObject(str);
+                        jsonCode = object.getString("code");
+                        jsonText = object.getString("text");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -175,7 +175,7 @@ public class RegisterFragment extends Fragment {
                         public void run() {
                             if (jsonCode.equals("0")) {
                                 Toast.makeText(activity, jsonText, Toast.LENGTH_SHORT).show();
-                            } else if (jsonCode.equals("1")){
+                            } else if (jsonCode.equals("1")) {
                                 Toast.makeText(activity, "注册成功", Toast.LENGTH_SHORT).show();
                                 //返回到登录界面
                                 mViewPager.setCurrentItem(0);
@@ -189,10 +189,5 @@ public class RegisterFragment extends Fragment {
         }).start();
 
     }
-
-    private void parseJson(String data) {
-
-    }
-
 
 }

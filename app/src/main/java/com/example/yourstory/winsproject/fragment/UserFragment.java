@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.yourstory.winsproject.LoginActivity;
+import com.example.yourstory.winsproject.MenuListActivity;
 import com.example.yourstory.winsproject.MyInformationActivity;
 import com.example.yourstory.winsproject.R;
 import com.example.yourstory.winsproject.adapter.UserGridAdapter;
@@ -79,8 +80,12 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         SharedPreferences preferences=getActivity().getSharedPreferences("login",Context.MODE_PRIVATE);
         String name= preferences.getString("id","未登录");
         tvName.setText(name);
-        Picasso picasso=Picasso.with(mContext);
-        picasso.load("http://39.105.144.55:8080/images/common/favicon.ico").into(ivHead);
+        if (name.equals("未登录")){
+            ivHead.setImageResource(R.drawable.touxiang);
+        }else {
+            Picasso picasso=Picasso.with(mContext);
+            picasso.load("http://39.105.144.55:8080/images/common/favicon.ico").into(ivHead);
+        }
 
     }
 
@@ -137,13 +142,15 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_user_saomiao:
-
+                Intent intentMyInfo=new Intent(mContext, MyInformationActivity.class);
+                startActivity(intentMyInfo);
                 break;
             case R.id.btn_user_shezhi:
-
+                Intent intentSet=new Intent(mContext, MenuListActivity.class);
+                startActivity(intentSet);
                 break;
             case R.id.iv_user_headimg:
-                Intent intentImg=new Intent(mContext, MyInformationActivity.class);
+                Intent intentImg=new Intent(mContext, LoginActivity.class);
                 startActivity(intentImg);
                 break;
             case R.id.tv_user_name:
